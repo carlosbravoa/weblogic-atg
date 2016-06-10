@@ -1,0 +1,7 @@
+name 'wml_java_8u92'
+maintainer 'Carlos Bravo'
+maintainer_email 'cbravoa@gmail.com'
+license 'all_rights'
+description 'instala Oracle java jdk 1.8.0_92 desde un repositorio en red local'
+long_description 'instala Oracle java jdk 1.8.0_92 desde un repositorio en red local'
+version '0.0.1'

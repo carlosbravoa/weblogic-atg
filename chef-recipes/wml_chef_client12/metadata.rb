@@ -1,0 +1,7 @@
+name 'wml_chef_client12'
+maintainer 'Carlos Bravo'
+maintainer_email 'cbravoa@gmail.com'
+license 'all_rights'
+description 'instala chef client 12.11.18-1 desde un repositorio en red local'
+long_description 'instala chef client 12.11.18-1 desde un repositorio en red local'
+version '0.0.1'
