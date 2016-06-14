@@ -1,0 +1,7 @@
+name 'wml_java_repo'
+maintainer 'Carlos Bravo'
+maintainer_email 'cbravoa@gmail.com'
+license 'all_rights'
+description 'Installs Oracle java jdk from a local network repository'
+long_description 'Installs Oracle java jdk from a local network repository'
+version '0.0.1'

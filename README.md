@@ -21,6 +21,8 @@ Oracle Java 1.8.0_92 is also installed as a required dependency.
 >        chef-12.11.18-1.el6.x86_64.rpm
 >     /oracle/
 >        atg/
+>           11.2/
+>               OCPlatform11_2.bin
 >        java/
 >			1.8.0_92/
 >				jdk-8u92-linux-x64.rpm
