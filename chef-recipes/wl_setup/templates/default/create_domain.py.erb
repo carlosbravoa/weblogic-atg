@@ -1,0 +1,88 @@
+domain_mode='<%= @domain_mode %>'
+domain_path='<%= @domains_path %>/<%= @domain %>'
+domain='<%= @domain %>'
+start_mode='<%= @start_mode %>'
+crossdomain_enabled=<%= @crossdomain_enabled %>
+admin_username='<%= @username %>'
+admin_password='<%= @password %>'
+
+def createManagedServer(servername, machinename, address, port):
+    print 'Creating Managed Server Configuration... ' + servername;
+    cd("/")
+    create(servername, "Server") 
+    cd("/Servers/" + servername)
+    if machinename:
+        set('Machine', machinename)
+    set('ListenAddress', address)
+    set('ListenPort', int(port))
+
+def createAdminServer(servername, address, port):
+    print 'Creating Admin Server Configuration... ' + servername;
+    cd("/")
+    create(servername, "Server") #Agregado CB
+    cd("/Servers/" + servername)
+    set('ListenAddress', address)
+    set('ListenPort', int(port))
+    cd('/')
+    cd('Security/base_domain/User/weblogic')
+    set('Name',admin_username)
+    cmo.setPassword(admin_password)
+
+def createMachine(machinename, address, port):
+    print 'Creating Machine Configuration... ' + machinename;
+    try:
+        cd('/')
+        create(machinename, 'Machine')
+    except BeanAlreadyExistsException:
+        print 'Machine ' + machinename + ' already exists';
+    cd('Machine/' + machinename)
+    create(machinename, 'NodeManager')
+    cd('NodeManager/' + machinename)
+    set('ListenAddress', address)
+    set('ListenPort', int(port))
+
+def createCluster(clustername, address, port):
+    print 'Creating Cluster Configuration... ' + clustername;
+    cd('/')
+    create(clustername, 'Cluster')
+    cd('Clusters/' + clustername)
+    set('MulticastAddress', address)
+    set('MulticastPort', port)
+    set('WeblogicPluginEnabled', 'true')
+
+def assignCluster(clustername, server):
+    print 'Assigning server ' + server + ' to Cluster ' + clustername;
+    cd('/')
+    assign('Server', server, 'Cluster', clustername)
+
+def createCustomDomain():
+    print 'Creating Domain... ' + domain;
+    readTemplate('<%= @wl_home %>/common/templates/wls/wls.jar', domain_mode)
+
+createCustomDomain() #Agregado CB
+
+setOption('ServerStartMode', start_mode)
+
+createAdminServer('<%= @admin_server['name'] %>', '<%= @admin_server['address'] %>', <%= @admin_server['port'] %>)
+
+<% @clusters.each do |cluster| -%>
+createCluster('<%= cluster['name'] %>', '<%= cluster['multicast_address'] %>', <%= cluster['multicast_port'] %>)
+<% end -%>
+
+<% @machines.each do |machine| -%>
+createMachine('<%= machine['name'] %>', '<%= machine['nm_address'] %>', <%= machine['nm_port'] %>)
+<% end -%>
+
+<% @managed_servers.each do |managed_server| -%>
+createManagedServer('<%= managed_server['name'] %>', '<%= managed_server['machine_name'] %>', '<%= managed_server['address'] %>', <%= managed_server['port'] %>)
+
+assignCluster('<%= managed_server['cluster_name'] %>','<%= managed_server['name'] %>')
+<% end -%>
+
+writeDomain(domain_path)
+closeTemplate()
+
+#createCustomDomain() #eliminado por CB
+dumpStack()
+print('Exitoing...')
+exit()

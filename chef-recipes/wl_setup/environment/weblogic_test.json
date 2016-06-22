@@ -1,0 +1,38 @@
+{
+"name": "weblogic_dev",
+"description": "",
+"cookbook_versions": {},
+"json_class": "Chef::Environment",
+"chef_type": "environment",
+"default_attributes": {
+	"weblogic": {
+		"os_user": "weblogic", 
+		"os_installer_group": "weblogic_admin",
+		"oracle_home": "/opt/oracle/Middleware/weblogic-12.1.3" 
+	},
+	"wls_domain": {
+		"name": "walmart1", 
+		"mode": "Compact",  
+		"start_mode": "dev", 
+		"crossdomain_enabled": "true", 
+		"admin_username": "weblogic", 
+		"admin_password": "password1", 
+		"admin_server": { 
+			"name": "nombre-dominio1",
+			"machine_name": "wls1",
+			"address": "192.168.33.5",
+			"port": "7001"
+
+			},
+		"managed_servers": [
+		],
+		"machines": [
+			{ "name": "wls1", "nm_address": "192.168.33.5", "nm_port": "5556"}
+		],
+		"clusters": [
+		]
+
+	}
+},
+"override_attributes": {}
+}
