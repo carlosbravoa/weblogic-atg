@@ -94,7 +94,7 @@ action :create do
 # The line above was commented because we already have java installed.
 # we have to use a particular version of java, downloaded locally.
 # now we include the use of our local java recipe
-  include_recipe 'wml_java_8u92'
+  include_recipe 'wml_java_repo'
 
   group groupname
 
