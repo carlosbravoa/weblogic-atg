@@ -29,6 +29,11 @@ Everything is on the environment file
 
 ## Usage
 
+1. Modify environment file (paths, ip, domain names)
+2. Upload environment file (knife environment from file wl_setup/environment/weblogic_test.json )
+3. Asociate env with the node
+4. Add the recipe to the runlist
+
 ### wl_setup::default
 
 
