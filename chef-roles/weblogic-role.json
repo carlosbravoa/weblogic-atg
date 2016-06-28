@@ -1,0 +1,13 @@
+{
+	"name":"Weblogic_full",
+	"default_attributes":{
+
+	},
+	"json_class":"Chef::Role",
+	"run_list":["recipe[weblogic]", "recipe[wl_setup]"],
+	"description": "webserver rol que instala Weblogic y configura un dominio (2 recetas: weblogic y wl_setup) ",
+	"chef_type": "role",
+	"override_attributes": {
+		"chef_client": { "interval": "300" }
+	}
+}

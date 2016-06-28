@@ -19,7 +19,6 @@ def createManagedServer(servername, machinename, address, port):
 def createAdminServer(servername, address, port):
     print 'Creating Admin Server Configuration... ' + servername;
     cd("/")
-    create(servername, "Server") #Agregado CB
     cd("/Servers/" + servername)
     set('ListenAddress', address)
     set('ListenPort', int(port))

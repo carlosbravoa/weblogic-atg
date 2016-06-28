@@ -18,7 +18,7 @@
 		"admin_username": "weblogic", 
 		"admin_password": "password1", 
 		"admin_server": { 
-			"name": "nombre-dominio1",
+			"name": "AdminServer",
 			"machine_name": "wls1",
 			"address": "192.168.33.5",
 			"port": "7001"
@@ -27,7 +27,6 @@
 		"managed_servers": [
 		],
 		"machines": [
-			{ "name": "wls1", "nm_address": "192.168.33.5", "nm_port": "5556"}
 		],
 		"clusters": [
 		]
