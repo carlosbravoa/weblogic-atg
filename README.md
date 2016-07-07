@@ -29,9 +29,17 @@ Oracle Java 1.8.0_92 is also installed as a required dependency.
 >		weblogic-server/
 >			12.1.3/
 >				fmw_12.1.3.0.0_wls.jar
+>		ohs/
+>			fmw_12.1.3.0.0_ohs_linux64.bin
 
 
 3. Update recipes attributes with the network address of your local repo
 
-4. Bootstrap your node with the recipe['weblogic']
+4. Upload role weblogic-role.json
+
+5. Bootstrap your node with the role['Weblogic_full']
+
+###For OHS installation
+Just run the wml_ohs_reqs and then wml_ohs_install recipes. They are currently in development.
+
 
