@@ -1,10 +1,7 @@
-name             'wml_ohs_install'
+name             'wml_ohs_setup'
 maintainer       'cbravoa@gmail.com'
 maintainer_email 'cbravoa@gmail.com'
 license          'All rights reserved'
-description      'Installs Oracle HTTP Server'
+description      'Installs/Configures wml_ohs_setup'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version          '0.1.6'
-depends 'wml_java_repo'
-depends 'wml_ohs_reqs'
-#oracle inventory also
+version          '0.1.0'

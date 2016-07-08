@@ -1,0 +1,29 @@
+instanceName = '<%= @instance_name %>'
+instanceAdminPort = '<%= @instance_admin_port %>'
+instanceHTTPPort = '<%= @instance_HTTP_Port %>'
+instanceHTTPSPort = '<%= @instance_HTTPS_Port %>'
+domain_path ='<%= @domains_path %>/<%= @domain_name %>'
+template_path = '<%= @middleware_home %>/ohs/common/templates/wls/ohs_standalone_template_12.1.3.jar'
+
+readTemplate(template_path)
+
+#create(instanceName,'SystemComponent')
+
+cd('/OHS/'+instanceName)
+
+cmo.setAdminPort(instanceAdminPort) 
+
+cmo.setListenPort(instanceHTTPPort) 
+
+cmo.setSSLListenPort(instanceHTTPSPort) 
+
+#server name, admin host?
+#nodemanager
+
+writeDomain(domain_path)
+
+closeTemplate()
+
+dumpStack()
+print('Exitoing...')
+exit()
