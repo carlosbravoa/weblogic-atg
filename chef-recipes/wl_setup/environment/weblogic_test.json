@@ -11,7 +11,7 @@
 		"oracle_home": "/opt/oracle/Middleware/weblogic-12.1.3" 
 	},
 	"wls_domain": {
-		"name": "walmart1", 
+		"name": "mydomain1", 
 		"mode": "Compact",  
 		"start_mode": "dev", 
 		"crossdomain_enabled": "true", 

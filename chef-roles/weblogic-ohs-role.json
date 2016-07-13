@@ -1,10 +1,10 @@
 {
-	"name":"weblogic-ohs",
+	"name":"weblogic_ohs",
 	"default_attributes":{
 
 	},
 	"json_class":"Chef::Role",
-	"run_list":["recipe[weblogic]", "recipe[wl_setup]", "recipe[wml_ohs_reqs]","recipe[wml_ohs_install]"],
+	"run_list":["recipe[weblogic]", "recipe[wl_setup]", "recipe[wml_ohs_reqs_repo]","recipe[wml_ohs_install]","recipe[wml_ohs_setup]"],
 	"description": "webserver rol que instala Weblogic, configura un dominio y luego instala ohs",
 	"chef_type": "role",
 	"override_attributes": {

@@ -62,7 +62,7 @@ createCustomDomain() #Agregado CB
 
 setOption('ServerStartMode', start_mode)
 
-createAdminServer('<%= @admin_server['name'] %>', '<%= @admin_server['address'] %>', <%= @admin_server['port'] %>)
+createAdminServer('<%= @admin_server['name'] %>', '<%= @ipadress %>', <%= @admin_server['port'] %>)
 
 <% @clusters.each do |cluster| -%>
 createCluster('<%= cluster['name'] %>', '<%= cluster['multicast_address'] %>', <%= cluster['multicast_port'] %>)
